@@ -1,7 +1,6 @@
 package api.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.ws.encoding.soap.DeserializationException;
 
 import java.io.IOException;
 import java.io.InputStream;

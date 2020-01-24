@@ -4,8 +4,6 @@ import api.clients.KeycloakTokenClient;
 import api.pojo.keycloak.TokenInput;
 import com.google.inject.Inject;
 
-import java.util.Objects;
-
 // TODO
 public class KeycloakSteps {
 

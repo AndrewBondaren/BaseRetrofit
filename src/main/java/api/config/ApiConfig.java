@@ -2,7 +2,8 @@ package api.config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({"classpath:${config}.properties"})
+//@Config.Sources({"classpath:${config}.properties"})
+@Config.Sources({"classpath:dev.properties"})
 public interface ApiConfig extends Config {
 
     //TODO refactor naming

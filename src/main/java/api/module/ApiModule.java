@@ -42,33 +42,12 @@ public class ApiModule extends AbstractModule {
                 .build();
     }
 
-//    @Provides
-//    protected TestService providesTestClient(final ApiConfig config,
-//                                                       final ObjectMapper mapper,
-//                                                       final OkHttpClient client) {
-//
-//        final OkHttpClient Test = client.newBuilder()
-//                .cookieJar(DefaultCookieJar.create())
-//                .addInterceptor(TokenInterceptor.create(config))
-//                .build();
-//
-//        final Retrofit retrofit = new Retrofit.Builder()
-//                .addCallAdapterFactory(DefaultCallAdapterFactory.create())
-//                .addConverterFactory(JacksonConverterFactory.create(mapper))
-//                .addConverterFactory(ToJsonStringConverterFactory.create(mapper))
-//                .baseUrl(config.getBaseUrl())
-//                .client(Test)
-//                .build();
-//        return retrofit.create(TestService.class);
-//
-//    }
-
     @Provides
     protected KeycloakTokenClient providesIKeycloakTokenClient(final ApiConfig config,
                                                                final ObjectMapper mapper,
                                                                final OkHttpClient client) {
 
-        final OkHttpClient Test = client.newBuilder()
+        final OkHttpClient KeycloakOkHttpClient = client.newBuilder()
                 .cookieJar(DefaultCookieJar.create())
                 //.addInterceptor(TokenInterceptor.create(config))
                 .build();
@@ -78,7 +57,7 @@ public class ApiModule extends AbstractModule {
                 .addConverterFactory(JacksonConverterFactory.create(mapper))
                 .addConverterFactory(ToJsonStringConverterFactory.create(mapper))
                 .baseUrl(config.getEnvBaseUrl())
-                .client(Test)
+                .client(KeycloakOkHttpClient)
                 .build();
         return retrofit.create(KeycloakTokenClient.class);
     }
